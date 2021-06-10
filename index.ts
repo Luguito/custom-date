@@ -41,16 +41,55 @@ class CustomDate {
     return m % 100;
   }
 
-  format(value: FormatsType[]) {
+  public format(value: FormatsType[]) {
     let date: string = '';
     for (let f of value) {
       date = date + ' ' + this.tableOfFormats[f]();
     }
     return date;
   }
+
+  public diff(date: DateType, by: ByType, text?: string[]) {
+    let day = new Date(this.date).valueOf() - new Date(date).valueOf();
+
+    let diff_years =
+      new Date(this.date).getUTCFullYear() - new Date(date).getUTCFullYear();
+
+    let diff_seconds = parseInt(day / 1000 + '');
+    let diff_minutes = parseInt(diff_seconds / 60 + '');
+    let diff_hours = parseInt(diff_minutes / 60 + '');
+    let diff_days = parseInt(diff_hours / 24 + '');
+    let diff_weeks = parseInt(diff_days / 7 + '');
+    let diff_mount = Math.abs(
+      new Date(this.date).getMonth() -
+        new Date(date).getMonth() * (diff_years != 0 ? diff_years * 12 : 0)
+    );
+    // let diff_days = new Date(this.date).getTime() - new Date(date).getTime();
+    let diffReturned: Partial<Record<ByType, any>> = {
+      MiliSeconds: () => day,
+      Seconds: () => diff_seconds,
+      Minutes: () => diff_minutes,
+      Hours: () => diff_hours,
+      Days: () => diff_days,
+      Weeks: () => diff_weeks,
+      Mounth: () => diff_mount,
+      Year: () => diff_years
+    };
+
+    return text[0] + diffReturned[by]() + text[1];
+  }
 }
 
 type DateType = string | number | Date;
+type ByType =
+  | 'Days'
+  | 'Mounth'
+  | 'Year'
+  | 'Minutes'
+  | 'Hours'
+  | 'Seconds'
+  | 'Weeks'
+  | 'MiliSeconds';
 type FormatsType =
   | 'M' // Just get the number of the mounth
   | 'MM' // Get short name of the mounth
@@ -73,4 +112,3 @@ const customDate = new CustomDate(Date.now()).format([
   'YY',
   'YYYY'
 ]);
-console.log(customDate);
