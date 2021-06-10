@@ -1,6 +1,34 @@
 {
-  "name": "typescript",
-  "version": "0.0.0",
-  "private": true,
-  "dependencies": {}
+  "name": "custom-date",
+  "version": "1.0.0",
+  "dependencies": {
+    "typescript": "^4.3.2"
+  },
+  "description": "New way to format your dates",
+  "main": "dist/index.js",
+  "files": [
+    "/dist"
+  ],
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "publish": "tsc && npm publish"
+  },
+  "keywords": [
+    "Date",
+    "Javascript",
+    "Typescript",
+    "Momentjs",
+    "Library"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Luguito/custom-date.git"
+  },
+  "author": "🔥",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Luguito/custom-date/issues"
+  },
+  "homepage": "https://github.com/Luguito/custom-date#readme"
 }
