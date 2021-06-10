@@ -1,15 +1,15 @@
 {
   "name": "basic-date",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "dependencies": {
     "typescript": "^4.3.2"
   },
   "description": "New way to format your dates",
   "main": "dist/index.js",
   "files": [
-    "/dist"
+    "dist"
   ],
-  "types": "/dist/index.d.ts",
+  "types": "dist/index.d.ts",
   "scripts": {
     "build": "tsc",
     "publish": "tsc && npm publish"
