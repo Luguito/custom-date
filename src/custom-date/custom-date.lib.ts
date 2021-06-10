@@ -10,6 +10,7 @@ export class CustomDate {
         'Friday',
         'Saturday'
     ];
+
     private months: Array<string> = [
         'January',
         'February',
@@ -24,6 +25,7 @@ export class CustomDate {
         'November',
         'December'
     ];
+
     private tableOfFormats: Partial<Record<FormatsType, Function>> = {
         M: () => new Date(this.date).getMonth() + 1,
         MM: () => this.shortName(this.months[new Date(this.date).getMonth()]),
@@ -33,25 +35,50 @@ export class CustomDate {
         YY: () => this.shortNumber(new Date(this.date).getFullYear()),
         YYYY: () => new Date().getFullYear()
     };
+
     constructor(private date) { }
 
+    /**
+     * @description Get a one day of the week and just return the first 3 letter of it
+     * @param m Day
+     * @returns String
+     * @author 🔥
+     */
     private shortName(m: string): string {
         let short = m.split('');
         return `${short[0] + short[1] + short[2]}`;
     }
+    /**
+     * @description Get a number and just return the last 2 digits of it
+     * @param m 
+     * @returns Number
+     * @author 🔥
+     */
     private shortNumber(m: number): number {
         return m % 100;
     }
-
-    public format(value: FormatsType[]) {
+    /**
+     * @description Get an Array of FormatsType and return his respectic value. VIEW FORMATSTYPE INFO.
+     * @returns String
+     * @param value 
+     * @author 🔥
+     */
+    public format(value: FormatsType[]): string {
         let date: string = '';
         for (let f of value) {
             date = date + ' ' + this.tableOfFormats[f]();
         }
         return date;
     }
-
-    public diff(date, by: ByType, text?: string[]) {
+    /**
+     * @description Compare dates and return the difference by the second parameter (by)
+     * @param date Date
+     * @param by ByType
+     * @param text Optional?. Array of string to build a sentence with the diff date
+     * @returns String
+     * @author 🔥
+     */
+    public diff(date, by: ByType, text?: string[]): string {
         let day = new Date(this.date).valueOf() - new Date(date).valueOf();
 
         let diff_years =
@@ -66,7 +93,7 @@ export class CustomDate {
             new Date(this.date).getMonth() -
             new Date(date).getMonth() * (diff_years != 0 ? diff_years * 12 : 0)
         );
-        // let diff_days = new Date(this.date).getTime() - new Date(date).getTime();
+
         let diffReturned: Partial<Record<ByType, any>> = {
             MiliSeconds: () => day,
             Seconds: () => diff_seconds,
