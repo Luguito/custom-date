@@ -1,2 +1,2 @@
-export { CustomDate } from './custom-date/custom-date.lib';
-export { ByType, DateType, FormatsType } from './types/custom-types.lib';
+export * from './custom-date/custom-date.lib';
+export * from './types/custom-types.lib';
