@@ -1,4 +1,4 @@
-import { ByType, DateType, FormatsType } from '../types/custom-types.lib'
+import { ByType, DateType, FormatsType, setEnum } from '../types/custom-types.lib'
 
 export class CustomDate {
     private days: Array<string> = [
@@ -107,4 +107,17 @@ export class CustomDate {
 
         return text[0] + diffReturned[by]() + text[1];
     }
+    /**
+     * @description Add or subtract on the date. 
+     * @param by String type
+     * @param dateWanted Number.
+     * @returns miliseconds date
+     */
+    public set(by: 'Date' | 'Mounth', dateWanted: number): Date {
+        let numberOfDate = new Date(this.date).getDate() + dateWanted;
+
+        let newDate = new Date(this.date)[setEnum[by]](numberOfDate)
+        return newDate
+    }
+    
 }

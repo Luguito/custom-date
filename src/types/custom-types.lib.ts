@@ -20,3 +20,10 @@ export type FormatsType =
   | 'mm' //
   | 'hh' //
   | 'ss'; //
+
+  export enum setEnum {
+    'Hours' = 'setHours',
+    'Mounth' = 'setMounth',
+    'Date' = 'setDate',
+    'Day' = 'setDay'
+  }
