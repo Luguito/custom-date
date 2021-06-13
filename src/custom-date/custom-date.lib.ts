@@ -32,6 +32,7 @@ export class CustomDate {
         MMMM: () => this.months[new Date(this.date).getMonth()],
         DDDD: () => this.days[new Date(this.date).getDay()],
         DD: () => this.shortName(this.days[new Date(this.date).getDay()]),
+        D: () => new Date().getDate(),
         YY: () => this.shortNumber(new Date(this.date).getFullYear()),
         YYYY: () => new Date().getFullYear()
     };
@@ -48,6 +49,7 @@ export class CustomDate {
         let short = m.split('');
         return `${short[0] + short[1] + short[2]}`;
     }
+
     /**
      * @description Get a number and just return the last 2 digits of it
      * @param m 
@@ -57,6 +59,7 @@ export class CustomDate {
     private shortNumber(m: number): number {
         return m % 100;
     }
+
     /**
      * @description Get an Array of FormatsType and return his respectic value. VIEW FORMATSTYPE INFO.
      * @returns String
@@ -70,6 +73,7 @@ export class CustomDate {
         }
         return date;
     }
+
     /**
      * @description Compare dates and return the difference by the second parameter (by)
      * @param date Date
@@ -107,17 +111,45 @@ export class CustomDate {
 
         return text[0] + diffReturned[by]() + text[1];
     }
+
     /**
      * @description Add or subtract on the date. 
      * @param by String type
      * @param dateWanted Number.
-     * @returns miliseconds date
+     * @returns Miliseconds date.
+     * @author 🔥
      */
     public set(by: 'Date' | 'Mounth', dateWanted: number): Date {
         let numberOfDate = new Date(this.date).getDate() + dateWanted;
 
-        let newDate = new Date(this.date)[setEnum[by]](numberOfDate)
-        return newDate
+        let newDate = new Date(this.date)[setEnum[by]](numberOfDate);
+
+        return newDate;
     }
-    
+
+    /**
+     * @description Compare is the main date is greater than date parameter
+     * @param date Date
+     * @returns Boolean
+     * @author 🔥
+     */
+    public greaterThan(date): boolean {
+
+        let isGreaterThan = new Date(this.date).getTime() > new Date(date).getTime();
+
+        return isGreaterThan;
+    }
+
+    /**
+     * @description Compare is the main date is smaller than date parameter
+     * @param date Date
+     * @returns Boolean
+     * @author 🔥
+     */
+    public smallerThan(date): boolean {
+
+        let isSmallerThan = new Date(this.date).getTime() < new Date(date).getTime();
+
+        return isSmallerThan;
+    }
 }

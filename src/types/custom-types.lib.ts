@@ -14,6 +14,7 @@ export type FormatsType =
   | 'MMMM' // Get long name of the mounth
   | 'DD' // Get short name of the days
   | 'DDDD' // Get long of the day
+  | 'D'
   | 'YY' // Short year
   | 'YYYY' // Long Year
   | 'm' //
