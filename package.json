@@ -12,6 +12,7 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "tsc",
+    "test": "tsc && node dist/index.js",
     "publish": "tsc && npm publish"
   },
   "keywords": [

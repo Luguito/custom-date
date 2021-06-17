@@ -27,7 +27,7 @@ export class CustomDate {
     ];
 
     private tableOfFormats: Partial<Record<FormatsType, Function>> = {
-        M: () => new Date(this.date).getMonth() + 1,
+        M: () => `${(new Date(this.date).getMonth() + 1).toString().length < 2 ? '0'+ (new Date(this.date).getMonth() + 1) : new Date(this.date).getMonth() + 1}`,
         MM: () => this.shortName(this.months[new Date(this.date).getMonth()]),
         MMMM: () => this.months[new Date(this.date).getMonth()],
         DDDD: () => this.days[new Date(this.date).getDay()],
@@ -37,7 +37,9 @@ export class CustomDate {
         YYYY: () => new Date().getFullYear()
     };
 
-    constructor(private date) { }
+    constructor(private date?) {
+        if (!this.date) this.date = new Date();
+    }
 
     /**
      * @description Get a one day of the week and just return the first 3 letter of it
@@ -66,12 +68,13 @@ export class CustomDate {
      * @param value 
      * @author 🔥
      */
-    public format(value: FormatsType[]): string {
+    public format(value: FormatsType[], separator: string = ''): string {
         let date: string = '';
         for (let f of value) {
-            date = date + ' ' + this.tableOfFormats[f]();
+            date = date.trim() + ' ' + this.tableOfFormats[f]();
         }
-        return date;
+        
+        return date.replace(/\s+/g, separator);
     }
 
     /**
