@@ -32,9 +32,9 @@ export class CustomDate {
         MMMM: () => this.months[new Date(this.date).getMonth()],
         DDDD: () => this.days[new Date(this.date).getDay()],
         DD: () => this.shortName(this.days[new Date(this.date).getDay()]),
-        D: () => new Date().getDate(),
+        D: () => new Date(this.date).getDate(),
         YY: () => this.shortNumber(new Date(this.date).getFullYear()),
-        YYYY: () => new Date().getFullYear()
+        YYYY: () => new Date(this.date).getFullYear()
     };
 
     constructor(private date?) {
