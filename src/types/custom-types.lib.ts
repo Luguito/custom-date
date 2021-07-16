@@ -9,18 +9,14 @@ export type ByType =
   | 'Weeks'
   | 'MiliSeconds';
 export type FormatsType =
-  | 'M' // Just get the number of the mounth
-  | 'MM' // Get short name of the mounth
-  | 'MMMM' // Get long name of the mounth
-  | 'DD' // Get short name of the days
-  | 'DDDD' // Get long of the day
-  | 'D'
-  | 'YY' // Short year
-  | 'YYYY' // Long Year
-  | 'm' //
-  | 'mm' //
-  | 'hh' //
-  | 'ss'; //
+  | 'M' // Mounth - Number
+  | 'MM' // Mounth - Shortname
+  | 'MMM' // Mounth - Longname
+  | 'D' // Day - Number
+  | 'DD' // Day - ShortName
+  | 'DDD' // Day - Longname
+  | 'Y' // Year - Last two digits
+  | 'YY' // Year - Complete number
 
   export enum setEnum {
     'Hours' = 'setHours',

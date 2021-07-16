@@ -29,12 +29,12 @@ export class CustomDate {
     private tableOfFormats: TableFormatType = {
         M: () => `${(new Date(this.date).getMonth() + 1).toString().length < 2 ? '0'+ (new Date(this.date).getMonth() + 1) : new Date(this.date).getMonth() + 1}`,
         MM: () => this.shortName(this.months[new Date(this.date).getMonth()]),
-        MMMM: () => this.months[new Date(this.date).getMonth()],
-        DDDD: () => this.days[new Date(this.date).getDay()],
-        DD: () => this.shortName(this.days[new Date(this.date).getDay()]),
+        MMM: () => this.months[new Date(this.date).getMonth()],
         D: () => new Date(this.date).getDate(),
-        YY: () => this.shortNumber(new Date(this.date).getFullYear()),
-        YYYY: () => new Date(this.date).getFullYear()
+        DD: () => this.shortName(this.days[new Date(this.date).getDay()]),
+        DDD: () => this.days[new Date(this.date).getDay()],
+        Y: () => this.shortNumber(new Date(this.date).getFullYear()),
+        YY: () => new Date(this.date).getFullYear()
     };
 
     constructor(private date?) {
