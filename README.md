@@ -30,13 +30,14 @@ Now with CustomDate initialized we can access to methods that class exposes
 
 Parameter | Returns
 ------ | --------- 
-M | Number of Mounth
-MM | Short name of the mounth
-MMMM | Long name of the mounth
-DDDD | Long name of the day
-DD | Short name of the day
-YY | Last two digits of the year
-YYYY | Year
+'M' | Month - Number
+'MM' | Month - Shortname
+'MMM' | Month - Longname
+'D' | Day - Number
+'DD' | Day - ShortName
+'DDD' | Day - Longname
+'Y' | Year - Last two digits
+'YY' | Year - Complete number
 
 #### diff
 
@@ -44,13 +45,13 @@ Parameters | Type
 ---------- | ---- 
 date | Date
 by | ByType
-text? | String
+text? | Optional String.
 
 #### set
 
 Parameters | Type
 ---------- | ----
-by | 'Date' or 'Mounth'
+by | 'Date' or 'Month'
 dateWanted | Number
 
 #### greatherThan
@@ -65,7 +66,7 @@ Parameter | Return
 --------- | ------
 date | Boolean
 
-### Example
+## Example
 
 Example using format
 ```
@@ -76,6 +77,9 @@ Example using format
     console.log(customDate)
     // output: June Thursday 2021
 ```
+### StackBlitz ⚡
+
+<https://stackblitz.com/edit/typescript-fgzaqr?file=examples/example-format.ts>
 
 Example using diff
 
@@ -84,10 +88,13 @@ Example using diff
 
     // Third parameter it's optional
 
-    let customDate = new CustomDate(date).diff(dateToCompare, 'Mounth', ['', 'mounth ago']);
+    let customDate = new CustomDate(date).diff(dateToCompare, 'Month', ['', 'Month ago']);
 
     //output: X mount ago
 ```
+### StackBlitz ⚡
+
+<https://stackblitz.com/edit/typescript-fgzaqr?file=examples/example-diff.ts>
 
 Example using set 
 
@@ -107,6 +114,10 @@ Example using set
     // Two days before the main date
 ```
 
+### StackBlitz ⚡
+
+<https://stackblitz.com/edit/typescript-fgzaqr?file=examples/example-set.ts>
+
 Example using greatherThan
 
 ```
@@ -121,6 +132,10 @@ Example using greatherThan
     // output : false
 ```
 
+### StackBlitz ⚡
+
+<https://stackblitz.com/edit/typescript-fgzaqr?file=examples/example-greatherThan.ts>
+
 Example using smallerThan
 
 ```
@@ -134,4 +149,6 @@ Example using smallerThan
     console.log(customDate)
     // output : true
 ```
+### StackBlitz ⚡
 
+<https://stackblitz.com/edit/typescript-fgzaqr?file=examples/example-smallerThan.ts>
