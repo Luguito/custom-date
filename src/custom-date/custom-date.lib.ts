@@ -1,4 +1,4 @@
-import { ByType, DateType, FormatsType, setEnum } from '../types/custom-types.lib'
+import { ByType, FormatsType, setEnum , TableFormatType} from '../types/custom-types.lib'
 
 export class CustomDate {
     private days: Array<string> = [
@@ -26,7 +26,7 @@ export class CustomDate {
         'December'
     ];
 
-    private tableOfFormats: Partial<Record<FormatsType, Function>> = {
+    private tableOfFormats: TableFormatType = {
         M: () => `${(new Date(this.date).getMonth() + 1).toString().length < 2 ? '0'+ (new Date(this.date).getMonth() + 1) : new Date(this.date).getMonth() + 1}`,
         MM: () => this.shortName(this.months[new Date(this.date).getMonth()]),
         MMMM: () => this.months[new Date(this.date).getMonth()],

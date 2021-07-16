@@ -28,3 +28,5 @@ export type FormatsType =
     'Date' = 'setDate',
     'Day' = 'setDay'
   }
+
+  export type TableFormatType = Partial<Record<FormatsType, Function>>;
