@@ -85,7 +85,7 @@ export class CustomDate {
      * @returns String
      * @author 🔥
      */
-    public diff(date, by: ByType, text?: string[]): string {
+    public diff(date, by: ByType, text: string[] = ['', '']): string {
         let day = new Date(this.date).valueOf() - new Date(date).valueOf();
 
         let diff_years =
@@ -112,7 +112,9 @@ export class CustomDate {
             Year: () => diff_years
         };
 
-        return text[0] + diffReturned[by]() + text[1];
+        let diffInTime:boolean =  Number(diffReturned[by]()) > 0;
+
+        return (text[0].length > 0 ? text[0] : (!diffInTime ? 'In ' : '')) + Math.abs(diffReturned[by]()) + (text[1].length > 0 ? text[1] : (!diffInTime ? ` ${by}` : ` ${by} ago`));
     }
 
     /**
