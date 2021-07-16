@@ -108,7 +108,7 @@ export class CustomDate {
             Hours: () => diff_hours,
             Days: () => diff_days,
             Weeks: () => diff_weeks,
-            Mounth: () => diff_mount,
+            Month: () => diff_mount,
             Year: () => diff_years
         };
 
@@ -124,7 +124,7 @@ export class CustomDate {
      * @returns Miliseconds date.
      * @author 🔥
      */
-    public set(by: 'Date' | 'Mounth', dateWanted: number): Date {
+    public set(by: 'Date' | 'Month', dateWanted: number){
         let numberOfDate = new Date(this.date).getDate() + dateWanted;
 
         let newDate = new Date(this.date)[setEnum[by]](numberOfDate);

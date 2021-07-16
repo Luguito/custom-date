@@ -1,7 +1,7 @@
 export type DateType = string | number | Date; // Trigger errors to much
 export type ByType =
   | 'Days'
-  | 'Mounth'
+  | 'Month'
   | 'Year'
   | 'Minutes'
   | 'Hours'
@@ -9,9 +9,9 @@ export type ByType =
   | 'Weeks'
   | 'MiliSeconds';
 export type FormatsType =
-  | 'M' // Mounth - Number
-  | 'MM' // Mounth - Shortname
-  | 'MMM' // Mounth - Longname
+  | 'M' // Month - Number
+  | 'MM' // Month - Shortname
+  | 'MMM' // Month - Longname
   | 'D' // Day - Number
   | 'DD' // Day - ShortName
   | 'DDD' // Day - Longname
@@ -20,7 +20,7 @@ export type FormatsType =
 
   export enum setEnum {
     'Hours' = 'setHours',
-    'Mounth' = 'setMounth',
+    'Month' = 'setMonth',
     'Date' = 'setDate',
     'Day' = 'setDay'
   }
