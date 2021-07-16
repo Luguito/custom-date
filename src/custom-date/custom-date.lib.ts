@@ -1,4 +1,4 @@
-import { ByType, FormatsType, setEnum , TableFormatType} from '../types/custom-types.lib'
+import { ByType, FormatsType, setEnum , TableFormatType, DiffReturnedType} from '../types/custom-types.lib'
 
 export class CustomDate {
     private days: Array<string> = [
@@ -101,7 +101,7 @@ export class CustomDate {
             new Date(date).getMonth() * (diff_years != 0 ? diff_years * 12 : 0)
         );
 
-        let diffReturned: Partial<Record<ByType, any>> = {
+        let diffReturned: DiffReturnedType = {
             MiliSeconds: () => day,
             Seconds: () => diff_seconds,
             Minutes: () => diff_minutes,

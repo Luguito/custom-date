@@ -26,3 +26,4 @@ export type FormatsType =
   }
 
   export type TableFormatType = Partial<Record<FormatsType, Function>>;
+  export type DiffReturnedType = Partial<Record<ByType, Function>>
